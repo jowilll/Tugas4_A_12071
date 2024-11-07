@@ -44,11 +44,10 @@ if uploaded_file is not None:
     st.markdown("<h1 style='text-align: center;'>Unsupervised Learning - Jowill</h1>", unsafe_allow_html=True) 
     st.dataframe(input_data)
 
-    model_directory = r'C:\Users\Lenovo\Documents\Kuliah - UAJY\Semester V - 2024-2025\Pembelajaran mesin dan Pembelajaran Mendalam - A\Modul 4\Tugas4_A_12071'
     model_path = {
-        "AGG_model": os.path.join(model_directory, "AGG_model.pkl"),
-        "Kmeans_model": os.path.join(model_directory, "Kmeans_model.pkl"),
-        "DBSCAN_model": os.path.join(model_directory, "DBSCAN_model.pkl"),
+        "AGG_model": r"AGG_model.pkl",
+        "Kmeans_model": r"Kmeans_model.pkl",
+        "DBSCAN_model": r"DBSCAN_model.pkl",
     }
     models = {}
     for model_name, path in model_path.items():

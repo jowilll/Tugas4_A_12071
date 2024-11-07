@@ -10,7 +10,7 @@ import plotly.graph_objects as go
 def scatter(model, model_name, data, new_point, features, color_scale, title):
     clusters = model.fit_predict(data[features])
     data[f"{model_name}_Cluster"] = clusters
-    if model_name == "Kmeans_model":
+    if model_name == "KMeans_model":
         new_cluster = model.predict(new_point[features])[0]
     else:
         distances = pairwise_distances(new_point[features], data[features])
@@ -46,7 +46,7 @@ if uploaded_file is not None:
 
     model_path = {
         "AGG_model": r"AGG_model.pkl",
-        "Kmeans_model": r"Kmeans_model.pkl",
+        "KMeans_model": r"KMeans_model.pkl",
         "DBSCAN_model": r"DBSCAN_model.pkl",
     }
     models = {}
@@ -69,7 +69,7 @@ if uploaded_file is not None:
             'Total_visits_online': [sum_VO]
         })
         cluster_method = [
-            ("Kmeans_model", models["Kmeans_model"], "Kmeans Clustering", px.colors.sequential.Cividis),
+            ("KMeans_model", models["KMeans_model"], "KMeans Clustering", px.colors.sequential.Cividis),
             ("AGG_model", models["AGG_model"], "Agglomerative Clustering", px.colors.sequential.Mint),
             ("DBSCAN_model", models["DBSCAN_model"], "DBSCAN Clustering", px.colors.sequential.Plasma)
         ]
